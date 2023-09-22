@@ -3,10 +3,10 @@ namespace dl_framework {
 template <typename T>
 class Variable {
  public:
-  Variable(const T& data);
-  const T& Data() const;
-  T& MutableData();
-  void SetData(const T& data);
+  Variable(const T& data) : data_(data) {}
+  const T& Data() const { return data_; }
+  T& MutableData() { return data_; }
+  void SetData(const T& data) { data_ = data; }
 
  private:
   T data_;
