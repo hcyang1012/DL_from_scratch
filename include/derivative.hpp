@@ -7,7 +7,7 @@
 namespace dl_framework {
 
 template <typename T>
-float numerical_diff(const Function<T>& f, const Variable<T>& x,
+float numerical_diff(Function<T>& f, const Variable<T>& x,
                      const float eps = 1e-4) {
   auto x0 = Variable<float>((x.Data()) - eps);
   auto x1 = Variable<float>((x.Data()) + eps);

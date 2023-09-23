@@ -16,7 +16,7 @@ template <typename T>
 class ComposedFunc : public dl_framework::Function<T> {
  public:
  private:
-  dl_framework::Variable<T> forward(const T& x) const override {
+  dl_framework::Variable<T> Forward(const T& x) const override {
     auto A = dl_framework::Square<float>();
     auto B = dl_framework::Exp<float>();
     auto C = dl_framework::Square<float>();
