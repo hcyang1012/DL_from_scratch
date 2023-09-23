@@ -1,4 +1,7 @@
 #pragma once
+#include <functional>
+#include <vector>
+// DL
 #include <function/function.hpp>
 #include <variable.hpp>
 namespace dl_framework {
@@ -12,5 +15,13 @@ float numerical_diff(const Function<T>& f, const Variable<T>& x,
   auto y1 = f(x1);
 
   return (y1.Data() - y0.Data()) / (2.0f * eps);
+}
+
+template <typename T>
+float numeral_diff(
+    const std::function<std::unique_ptr<Function<T>>()>& composed,
+    const Variable<T>& x) {
+  auto func = composed();
+  return numeral_diff(*func, x);
 }
 }  // namespace dl_framework
